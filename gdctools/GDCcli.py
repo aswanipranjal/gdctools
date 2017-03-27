@@ -28,7 +28,7 @@ class GDCcli(argparse.ArgumentParser):
 
     ALL_REMAINING_ARGS = argparse.REMAINDER
 
-    def __init__(self, descrip=None, version=""):
+    def __init__(self, descrip=None, version=None):
 
         if not descrip:
             descrip =  'GDCtools: a suite of CLI tools plus Python bindings\n'
@@ -42,6 +42,7 @@ class GDCcli(argparse.ArgumentParser):
         super(GDCcli,self).__init__(description=descrip,
                 formatter_class=argparse.RawDescriptionHelpFormatter)
 
+        self.version = version
         # Note that args with nargs=+ will be instantiated as lists
         self.add_argument('--verbose', dest='verbose', action='count', help=\
                 'Each time specified, increment verbosity level [%(default)s]')
@@ -60,7 +61,7 @@ class GDCcli(argparse.ArgumentParser):
         self.add_argument('datestamp', nargs='?', help='Use GDC data for a'
                           ' specific date. If omitted, the latest available'
                           ' data will be used.')
-        self.version = version
+        #self.version = version
 
     def parse_args(self):
         return super(GDCcli,self).parse_args()
