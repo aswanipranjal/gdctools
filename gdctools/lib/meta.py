@@ -20,7 +20,7 @@ import json
 import sys
 import logging
 import csv
-from common import DATESTAMP_REGEX, ANNOT_TO_DATATYPE
+from lib.common import DATESTAMP_REGEX, ANNOT_TO_DATATYPE
 from collections import namedtuple, defaultdict
 
 # Lightweight class to enable handling of aggregate projects
