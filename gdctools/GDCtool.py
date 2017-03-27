@@ -17,7 +17,7 @@ file for the SOFTWARE COPYRIGHT and WARRANTY NOTICE.
 import sys
 import os
 import traceback
-import ConfigParser
+import configparser
 import time
 import logging
 from pkg_resources import resource_filename
@@ -85,7 +85,7 @@ class GDCtool(object):
             cfg_default = resource_filename(__name__, "default.cfg")
             self.options.config = [open(cfg_default,"r")]
 
-        cfgparser = ConfigParser.SafeConfigParser()
+        cfgparser = configparser.SafeConfigParser()
         # Since we use argparse to ensure filenames, but config parser expects
         # filenames, convert them here
         cfgparser.read([f.name for f in self.options.config])
