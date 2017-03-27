@@ -89,7 +89,7 @@ class attrdict(dict):
         return self.__getitem__(item)
 
     def __setattr__(self, item, value):
-        if item in self.__dict__:
+        if item in self.__dict__: #isn't this more pythonic?
             dict.__setattr__(self, item, value)
         else:
             self.__setitem__(item, value)
